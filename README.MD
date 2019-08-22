@@ -8,13 +8,13 @@ This application is built using MongoDB, Express, and Node JS.
 
 ## Wireframes
 Home/Main Page:
-![alt wireframe](https://imgur.com/8Ok07wx)
+<img src="https://imgur.com/8Ok07wx">
 When a person is logged in they will be able to save flowers to keep track of their favorites. My Flowers page:
-![alt wireframe](https://imgur.com/TgGZFRx)
+<img src="https://imgur.com/TgGZFRx>
 Page to add a new Flower:
-![alt wireframe](https://imgur.com/Eri1rtV)
+<img src="https://imgur.com/Eri1rtV>
 Show details of a Flower and make comments:
-![alt wireframe](https://imgur.com/T93xmxI)
+<img src="https://imgur.com/T93xmxI>
 
 ## User stories 
 - AAU I want to be able to search flowers based on light exposure and season of the year.
