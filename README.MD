@@ -8,12 +8,22 @@ This application is built using MongoDB, Express, and Node JS.
 
 ## Wireframes
 Home/Main Page:
+
 ![home](https://i.imgur.com/cW6S8gY.png)
+
+
 When a user is logged in they will be able to save flowers to keep track of their favorites. My Flowers page:
+
 ![user](https://i.imgur.com/flhW5rr.png)
+
+
 Page to add a new Flower:
+
 ![new](https://i.imgur.com/gqH6sLh.png)
+
+
 Show details of a Flower and make comments:
+
 ![show](https://i.imgur.com/V1YVjrN.png)
 
 ## User stories 
