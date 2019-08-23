@@ -7,7 +7,12 @@ module.exports = {
 
 function index(req, res) {
     Flower.find({}, function(err, flowers) {
-        res.render('flowers/index', { flowers });
+        res.render('flowers/index', { 
+          flowers,
+          user: req.user,
+          name: req.query.name,
+          //sortKey
+        });
     });
   }  
 
