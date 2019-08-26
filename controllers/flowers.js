@@ -3,6 +3,7 @@ var Flower = require('../models/flower');
 module.exports = {
   index,
   new: newFlower,
+  user: userPage
 };
 
 function index(req, res) {
@@ -18,4 +19,8 @@ function index(req, res) {
 
 function newFlower(req, res) {
     res.render('flowers/new');
+}
+
+function userPage(req, res) {
+  res.render('flowers/user');
 }
