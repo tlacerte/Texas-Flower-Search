@@ -14,6 +14,7 @@ var flowerSchema = new Schema({
         enum: ['Full Sun', 'Partial Shade', 'Full Shade']
     },
     //reviews: [reviewSchema]
+    googleId: String
 });
 
 // var reviewSchema = new Schema({

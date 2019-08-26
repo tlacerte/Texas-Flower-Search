@@ -1,6 +1,7 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var Flower = require('../models/flower');
+var User = require('../models/user');
 
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 // new code below
@@ -11,13 +12,31 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     // a user has logged in with OAuth...
+    User.findOne({'googleId': profile.id}, function(err, user){
+      if (err) return cb(err);
+      if (user){
+        cb(null, user);
+      } else {
+        var newUser = new User({
+          name: profile.displayName,
+          email: profile.emails[0].value,
+          googleId: profile.id
+        })
+        newUser.save(function(err){
+          if(err) return cb(err)
+          return cb(null, newUser)
+        })
+      }
+    })
   }
 ));
 
-passport.serializeUser(function(flower, done) {
-
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
 });
   
 passport.deserializeUser(function(id, done) {
-
+  User.findById(id, function(err, user){
+    done(err, user);
+  })
 });
