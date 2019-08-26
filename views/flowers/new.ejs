@@ -1,3 +1,24 @@
 <%- include('../partials/header') %>
 <h1>Add a Flower</h1>
+<form id="add-flower" action="/flowers" method="POST">  
+    <label for="name">Flower Name: </label><input type="text">
+    <br>
+    <label for="season">Season of Year: </label><select name="season">
+        <option value="winter">Winter</option>
+        <option value="spring">Spring</option>
+        <option value="summer">Summer</option>
+        <option value="fall">Fall</option>
+    </select>
+    <br>
+    <label for="light">Light Exposure: </label><select name="light">
+        <option value="full sun">Full Sun</option>
+        <option value="partial shade">Partial Shade</option>
+        <option value="full shade">Full Shade</option>
+    </select>
+    <br>
+    <label for="img">Upload Image: </label>
+    <input type="file" value="img">
+    <br>
+    <input type="submit" value="Add Flower">
+</form>
 <%- include('../partials/footer') %>

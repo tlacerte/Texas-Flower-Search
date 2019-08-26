@@ -18,9 +18,15 @@ function index(req, res) {
   }  
 
 function newFlower(req, res) {
-    res.render('flowers/new');
+    res.render('flowers/new', {
+      user: req.user,
+      name: req.query.name,
+    });
 }
 
 function userPage(req, res) {
-  res.render('flowers/user');
+  res.render('flowers/user', {
+    user: req.user,
+    name: req.query.name,
+  });
 }

@@ -71,3 +71,7 @@ h3 {
 .flower-title {
   font-size: 32px;
 }
+
+.add-flower {
+  display: block;
+}
