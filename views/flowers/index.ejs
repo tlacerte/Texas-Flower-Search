@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Flowers</title>
-</head>
-<body>
-    <nav class="navbar">
-        <ul class="main-nav" id="js-menu">
-            <li class="nav-links"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Texas_flag_map.svg" alt="texasflag" height="20px"></li>
-            <li><a href="/flowers" class="nav-links">Search Flowers</a></li>
-            <li><a href="/flowers/new" class="nav-links">Add a Flower</a></li>
-            <li><a href="flowers/user" class="nav-links">My Flowers</a></li>
-            <li class="login">
-                <% if (user) { %>
-                    <a href="/logout" class="nav-links">Log Out</a>
-                <% } else { %>
-                    <a href="/auth/google" class="nav-links">Login with Google</a>
-                <% } %>
-            </li>
-        </ul>
-    </nav>
+<%- include('../partials/header') %>
     <header>
         <h1>What should I plant in Texas?</h1>
     </header>
     <h3>Search for Flowers:</h3>
-    <form>  
-        <label for="season">Season of Year:</label><select name="season" id="">
+    <form id="search-flowers" action="/flowers" method="GET">  
+        <label for="season">Season of Year:</label><select name="season">
             <option value="winter">Winter</option>
             <option value="spring">Spring</option>
             <option value="summer">Summer</option>
             <option value="fall">Fall</option>
         </select>
-        <label for="light">Light Exposure:</label><select name="light" id="">
+        <label for="light">Light Exposure:</label><select name="light">
             <option value="full sun">Full Sun</option>
             <option value="partial shade">Partial Shade</option>
             <option value="full shade">Full Shade</option>
         </select>
+        <input type="submit" value="Search">
     </form>
-</body>
-</html>
+    <div class="flower">
+        <div class="flower-img">
+            <img src="https://cdn2.stylecraze.com/wp-content/uploads/2013/11/Top-25-Most-Beautiful-Daisy-Flowers.jpg" alt="flower">
+        </div>
+        <div class="flower-info">
+            <p class="flower-title">Flower name</p>
+            <p><span class="flower-label">Season of Year: </span>Summer</p>
+            <p><span class="flower-label">Light Exposure: </span>Full Sun</p>
+        </div>
+    </div>
+<%- include('../partials/footer') %>
