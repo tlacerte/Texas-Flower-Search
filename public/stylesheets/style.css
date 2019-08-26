@@ -51,7 +51,7 @@ h3 {
   border: 6px solid black;
   width: 75%;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 2fr 6fr 1fr;
   height: 130px;
   justify-items: center;
   align-items: center;
@@ -69,5 +69,5 @@ h3 {
 }
 
 .flower-title {
-  font-size: 35px;
+  font-size: 32px;
 }
