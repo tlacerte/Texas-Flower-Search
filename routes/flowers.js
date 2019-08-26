@@ -6,6 +6,7 @@ var passport = require('passport');
 router.get('/', flowersCtrl.index);
 router.get('/new', isLoggedIn, flowersCtrl.new);
 router.get('/user', isLoggedIn, flowersCtrl.user);
+router.post('/', isLoggedIn, flowersCtrl.create);
 
 function isLoggedIn(req, res, next) {
    if ( req.isAuthenticated() ) return next();

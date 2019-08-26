@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
 <h1>Add a Flower</h1>
 <form id="add-flower" action="/flowers" method="POST">  
-    <label for="name">Flower Name: </label><input type="text">
+    <label for="name">Flower Name: </label>
+    <input type="text" name="name">
     <br>
     <label for="season">Season of Year: </label><select name="season">
         <option value="winter">Winter</option>
@@ -16,8 +17,8 @@
         <option value="full shade">Full Shade</option>
     </select>
     <br>
-    <label for="img">Upload Image: </label>
-    <input type="file" value="img">
+    <label for="image">Link to Image: </label>
+    <input type="text" name="image">
     <br>
     <input type="submit" value="Add Flower">
 </form>

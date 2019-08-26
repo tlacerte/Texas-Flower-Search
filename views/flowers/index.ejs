@@ -17,17 +17,19 @@
         </select>
         <input type="submit" value="Search">
     </form>
-    <div class="flower">
-        <div class="flower-img">
-            <img src="https://cdn2.stylecraze.com/wp-content/uploads/2013/11/Top-25-Most-Beautiful-Daisy-Flowers.jpg" alt="flower">
+    <% flowers.forEach(function(f){ %>
+        <div class="flower">
+            <div class="flower-img">
+                <img src="<%= f.image %>"" alt="flower">
+            </div>
+            <div class="flower-info">
+                <p class="flower-title"><%= f.name %></p>
+                <p><span class="flower-label">Season of Year: </span><%= f.season %></p>
+                <p><span class="flower-label">Light Exposure: </span><%= f.light %></p>
+            </div>
+            <div>
+                <input type="submit" value="Add to My Flowers">
+            </div>
         </div>
-        <div class="flower-info">
-            <p class="flower-title">Flower name</p>
-            <p><span class="flower-label">Season of Year: </span>Summer</p>
-            <p><span class="flower-label">Light Exposure: </span>Full Sun</p>
-        </div>
-        <div>
-            <input type="submit" value="Add to My Flowers">
-        </div>
-    </div>
+    <% }); %>
 <%- include('../partials/footer') %>

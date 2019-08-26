@@ -3,7 +3,8 @@ var Flower = require('../models/flower');
 module.exports = {
   index,
   new: newFlower,
-  user: userPage
+  user: userPage,
+  create
 };
 
 function index(req, res) {
@@ -29,4 +30,13 @@ function userPage(req, res) {
     user: req.user,
     name: req.query.name,
   });
+}
+
+function create(req, res) {
+  var flower = new Flower(req.body);
+  flower.save(function(err){
+    if (err) return res.render('flowers/new');
+    console.log(flower);
+    res.redirect('/flowers')
+  })
 }
