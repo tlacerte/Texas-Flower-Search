@@ -4,7 +4,7 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/flowers');
+  res.render('index');
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -15,12 +15,12 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect : '/flowers',
-    failureRedirect : '/flowers'
+    failureRedirect : '/'
   }
 ));
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/flowers');
+  res.redirect('/');
 });
 
 module.exports = router;

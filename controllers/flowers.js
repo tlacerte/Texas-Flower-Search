@@ -29,13 +29,18 @@ function userPage(req, res) {
   res.render('flowers/user', {
     user: req.user,
     name: req.query.name,
+    myFlowers: []
   });
 }
 
 function create(req, res) {
-  var flower = new Flower(req.body);
-  flower.save(function(err){
-    if (err) return res.render('flowers/new');
+  let newFlower = new Flower(req.body);
+  console.log('LINE 37 IS A PARTY ::::\n', newFlower)
+  newFlower.save(function(err, flower){
+    if (err) {
+      console.error(err)
+      return res.render('flowers/new'); 
+    }
     console.log(flower);
     res.redirect('/flowers')
   })

@@ -3,7 +3,7 @@ var router = express.Router();
 var flowersCtrl = require('../controllers/flowers');
 var passport = require('passport');
 
-router.get('/', flowersCtrl.index);
+router.get('/', isLoggedIn, flowersCtrl.index);
 router.get('/new', isLoggedIn, flowersCtrl.new);
 router.get('/user', isLoggedIn, flowersCtrl.user);
 router.post('/', isLoggedIn, flowersCtrl.create);

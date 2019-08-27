@@ -5,11 +5,11 @@ var flowerSchema = new Schema({
     name: String,
     season: {
         type: String,
-        enum: ['Winter', 'Spring', 'Summer', 'Fall']
+        enum: ['winter', 'spring', 'summer', 'fall']
     },
     light: {
         type: String,
-        enum: ['Full Sun', 'Partial Shade', 'Full Shade']
+        enum: ['full sun', 'partial shade', 'full shade']
     },
     image: String,
     //reviews: [reviewSchema]
