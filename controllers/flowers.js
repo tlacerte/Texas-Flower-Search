@@ -1,10 +1,12 @@
 var Flower = require('../models/flower');
+var User = require('../models/user')
 
 module.exports = {
   index,
   new: newFlower,
   user: userPage,
-  create
+  create,
+  addFavorite
 };
 
 function index(req, res) {
@@ -44,4 +46,14 @@ function create(req, res) {
     console.log(flower);
     res.redirect('/flowers')
   })
+}
+
+function addFavorite(req, res){
+  let newFlower = new Flower(req.body);
+  let user = req.user;
+  user.myFlowers.push(newFlower);
+  user.save(function(err, flower){
+    console.log(req.user);
+    res.redirect('/flowers/user')
+  });
 }
