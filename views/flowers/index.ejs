@@ -28,6 +28,7 @@
             </div>
             <div>
                 <form action="/flowers/user" method="POST">
+                    <input type="hidden" name="_id" value="<%= f._id %>">
                     <input type="hidden" name="name" value="<%= f.name %>">
                     <input type="hidden" name="season" value="<%= f.season %>">
                     <input type="hidden" name="light" value="<%= f.light %>">

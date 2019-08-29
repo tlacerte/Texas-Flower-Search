@@ -27,11 +27,15 @@ function newFlower(req, res) {
     });
 }
 
-function userPage(req, res) {
+async function userPage(req, res) {
+  let user = await User.findOne({googleId: req.user.googleId}).populate('myFlowers')
+  let flower = await Flower.find({})
+  console.log(user.myFlowers)
   res.render('flowers/user', {
     user: req.user,
-    name: req.query.name,
-    myFlowers: []
+    name: req.user.name,
+    flower,
+    user
   });
 }
 
@@ -49,7 +53,8 @@ function create(req, res) {
 }
 
 function addFavorite(req, res){
-  let newFlower = new Flower(req.body);
+  console.log(req.body)
+  let newFlower = req.body._id;
   let user = req.user;
   user.myFlowers.push(newFlower);
   user.save(function(err, flower){
