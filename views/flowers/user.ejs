@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <h1>My Flowers</h1>
-<% user.myFlowers.forEach(function(f){ %>
+<% user.myFlowers.forEach(function(f, idx){ %>
     <div class="flower">
         <div class="flower-img">
             <img src="<%= f.image %>"" alt="flower">
@@ -11,7 +11,7 @@
             <p><span class="flower-label">Light Exposure: </span><%= f.light %></p>
         </div>
         <div>
-            <form action="/flowers/user" method="POST">
+            <form action="/flowers/user/<%= idx %>?_method=DELETE" method="POST">
                 <input type="hidden" name="name" value="<%= f.name %>">
                 <input type="hidden" name="season" value="<%= f.season %>">
                 <input type="hidden" name="light" value="<%= f.light %>">

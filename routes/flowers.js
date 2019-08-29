@@ -8,6 +8,7 @@ router.get('/new', isLoggedIn, flowersCtrl.new);
 router.get('/user', isLoggedIn, flowersCtrl.user);
 router.post('/', isLoggedIn, flowersCtrl.create);
 router.post('/user', isLoggedIn, flowersCtrl.addFavorite);
+router.delete('/user/:id', isLoggedIn, flowersCtrl.delete);
 
 function isLoggedIn(req, res, next) {
    if ( req.isAuthenticated() ) return next();

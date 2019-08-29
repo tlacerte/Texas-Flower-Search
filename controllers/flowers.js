@@ -6,7 +6,8 @@ module.exports = {
   new: newFlower,
   user: userPage,
   create,
-  addFavorite
+  addFavorite,
+  delete: deleteFlower
 };
 
 function index(req, res) {
@@ -59,6 +60,16 @@ function addFavorite(req, res){
   user.myFlowers.push(newFlower);
   user.save(function(err, flower){
     console.log(req.user);
+    res.redirect('/flowers/user')
+  });
+}
+
+async function deleteFlower(req, res) {
+  let user = await User.findOne({googleId: req.user.googleId});
+  let idx = req.params.id;
+  console.log(idx)
+  user.myFlowers.splice(idx, 1);
+  user.save(function(err){
     res.redirect('/flowers/user')
   });
 }
