@@ -7,20 +7,21 @@ module.exports = {
   user: userPage,
   create,
   addFavorite,
-  delete: deleteFlower
+  delete: deleteFlower,
 };
 
+//load main flowers page - ejs loops through all flowers
 function index(req, res) {
     Flower.find({}, function(err, flowers) {
         res.render('flowers/index', { 
           flowers,
           user: req.user,
           name: req.query.name,
-          //sortKey
         });
     });
   }  
 
+//renders the add a new flower page  
 function newFlower(req, res) {
     res.render('flowers/new', {
       user: req.user,
@@ -28,6 +29,7 @@ function newFlower(req, res) {
     });
 }
 
+//renders the user page with all of the favorite flowers of the user
 async function userPage(req, res) {
   let user = await User.findOne({googleId: req.user.googleId}).populate('myFlowers')
   let flower = await Flower.find({})
@@ -40,9 +42,9 @@ async function userPage(req, res) {
   });
 }
 
+//function to add a flower and return to the main index flower page
 function create(req, res) {
   let newFlower = new Flower(req.body);
-  console.log('LINE 37 IS A PARTY ::::\n', newFlower)
   newFlower.save(function(err, flower){
     if (err) {
       console.error(err)
@@ -53,6 +55,7 @@ function create(req, res) {
   })
 }
 
+//when button add to my flowers is clicked, redirect to usre page and add that flower
 function addFavorite(req, res){
   console.log(req.body)
   let newFlower = req.body._id;
@@ -64,6 +67,7 @@ function addFavorite(req, res){
   });
 }
 
+//delete a flower from the my flowers user page
 async function deleteFlower(req, res) {
   let user = await User.findOne({googleId: req.user.googleId});
   let idx = req.params.id;
