@@ -8,6 +8,7 @@ module.exports = {
   create,
   addFavorite,
   delete: deleteFlower,
+  show
 };
 
 //load main flowers page - ejs loops through all flowers
@@ -76,4 +77,16 @@ async function deleteFlower(req, res) {
   user.save(function(err){
     res.redirect('/flowers/user')
   });
+}
+
+//render show page
+function show(req, res){
+  Flower.findById(req.params.id, function(err, flower) {
+    console.log(flower);
+    res.render('flowers/show', {
+      user: req.user,
+      name: req.query.name,
+      flower
+    });
+  })
 }

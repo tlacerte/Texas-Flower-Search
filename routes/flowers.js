@@ -6,6 +6,7 @@ var passport = require('passport');
 router.get('/', isLoggedIn, flowersCtrl.index);
 router.get('/new', isLoggedIn, flowersCtrl.new);
 router.get('/user', isLoggedIn, flowersCtrl.user);
+router.get('/:id', isLoggedIn, flowersCtrl.show);
 router.post('/', isLoggedIn, flowersCtrl.create);
 router.post('/user', isLoggedIn, flowersCtrl.addFavorite);
 router.delete('/user/:id', isLoggedIn, flowersCtrl.delete);
