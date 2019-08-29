@@ -89,6 +89,14 @@ h3 {
   justify-content: center;
 }
 
+.show-flower {
+  height: 10em;
+  width: 10em;
+  border: .2em solid black;
+  padding: .1em;
+  margin: .1em;
+}
+
 @media only screen and (max-width: 700px) {
   .main-nav {
     display: grid;

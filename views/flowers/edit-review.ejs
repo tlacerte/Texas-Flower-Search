@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+<h3><%= flower.name %></h3>
+<h4>Edit Review:</h4>
+
+<form method="POST" action="/reviews/<%= flower._id %>/update/<%= reviewIdx %>">
+    <textarea name="content"><%= flower.reviews[reviewIdx].content %></textarea>
+    <input type="submit" value="Edit Review">
+</form>
+<%- include('../partials/footer') %>
