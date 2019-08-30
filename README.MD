@@ -22,25 +22,28 @@ Page to add a new Flower:
 ![new](https://i.imgur.com/gqH6sLh.png)
 
 
-(STRETCH) Show details of a Flower and make comments:
+Show details of a Flower and make comments:
 
 ![show](https://i.imgur.com/V1YVjrN.png)
 
 ## User stories 
-- AAU I want to be able to search flowers based on light exposure and season of the year.
 - AAU I want to know the name, season, light exposure, and see a picture of each flower.
 - AAU I want to be able to 'save'/'favorite' flowers that I want to keep on my user page to reference.
 - AAU I want to be able to add a new flower in case I know of one that is not in the database.
+- AAU I want to be able to leave comments about how the flowers bloomed in my garden and see other user's comments.
+
+- NEXT: AAU I want to be able to search flowers based on light exposure and season of the year.
 
 
 ## Features list 
 - Log in with Google OAuth
-- Search curated Flower API by Light Exposure and Season
 - Favorite Flowers if you are logged in
-- Comment your experience with each flower
+- Comment your experience with each flower and edit the comment
+- Add a new flower
+- Remove a flower from your favorites
+###Will add next:
+- Search curated Flower API by Light Exposure and Season
 
 ## Stretch goals 
-- AAU I want to be able to leave comments about how the flowers bloomed in my garden and see other user's comments.
 - AAU I want to see the weather in the corner of the page (imported from weather app api)
 
-## Pseudocode
