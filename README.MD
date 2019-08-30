@@ -45,5 +45,6 @@ Show details of a Flower and make comments:
 - Search curated Flower API by Light Exposure and Season
 
 ## Stretch goals 
+- Prevent duplicates 
 - AAU I want to see the weather in the corner of the page (imported from weather app api)
 
