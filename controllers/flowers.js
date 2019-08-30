@@ -34,7 +34,7 @@ function newFlower(req, res) {
 async function userPage(req, res) {
   let user = await User.findOne({googleId: req.user.googleId}).populate('myFlowers')
   let flower = await Flower.find({})
-  console.log(user.myFlowers)
+  //console.log(user.myFlowers)
   res.render('flowers/user', {
     user: req.user,
     name: req.user.name,
@@ -51,7 +51,7 @@ function create(req, res) {
       console.error(err)
       return res.render('flowers/new'); 
     }
-    console.log(flower);
+    //console.log(flower);
     res.redirect('/flowers')
   })
 }
@@ -63,7 +63,7 @@ function addFavorite(req, res){
   let user = req.user;
   user.myFlowers.push(newFlower);
   user.save(function(err, flower){
-    console.log(req.user);
+    //console.log(req.user);
     res.redirect('/flowers/user')
   });
 }
@@ -72,7 +72,7 @@ function addFavorite(req, res){
 async function deleteFlower(req, res) {
   let user = await User.findOne({googleId: req.user.googleId});
   let idx = req.params.id;
-  console.log(idx)
+  //console.log(idx)
   user.myFlowers.splice(idx, 1);
   user.save(function(err){
     res.redirect('/flowers/user')
@@ -82,7 +82,7 @@ async function deleteFlower(req, res) {
 //render show page
 function show(req, res){
   Flower.findById(req.params.id, function(err, flower) {
-    console.log(flower);
+    //console.log(flower);
     res.render('flowers/show', {
       user: req.user,
       name: req.query.name,

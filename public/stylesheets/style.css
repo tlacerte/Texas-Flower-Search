@@ -44,7 +44,7 @@ h1 {
 
 h3 {
   margin: .1em;
-  font-size: 1.7em;
+  font-size: 1.5em;
 }
 
 .flower {
@@ -95,6 +95,21 @@ h3 {
   border: .2em solid black;
   padding: .1em;
   margin: .1em;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+thead, tbody, td {
+  margin: 3em;
+}
+
+.show-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
 }
 
 @media only screen and (max-width: 700px) {

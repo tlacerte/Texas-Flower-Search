@@ -16,7 +16,7 @@ function create(req, res) {
 }
 
 async function edit(req, res) {
-    let flower = await Flower.findOne({api_id: req.params.restId})
+    let flower = await Flower.findOne({_id: req.params.id})
     res.render('flowers/edit-review', {
             user: req.user,
             flower,
